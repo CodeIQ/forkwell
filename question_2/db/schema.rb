@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20121209013603) do
 
+  create_table "publication_skilltags", :force => true do |t|
+    t.integer  "publication_id"
+    t.integer  "skilltag_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "publications", :force => true do |t|
     t.string   "title"
     t.string   "url"
