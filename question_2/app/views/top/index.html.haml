@@ -1,0 +1,7 @@
+%h1 Top
+
+- if user_signed_in?
+  %h2= "Hello, #{current_user.username}!!"
+  %p= link_to 'logout', logout_path, method: :delete
+- else
+  %p= link_to 'login', login_path, method: :post

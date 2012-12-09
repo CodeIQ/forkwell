@@ -1,4 +1,9 @@
 Question2::Application.routes.draw do
+  post '/login' => 'sessions#login', as: 'login'
+  delete '/logout' => 'sessions#logout', as: 'logout'
+
+  root to: 'top#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
