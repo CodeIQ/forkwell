@@ -4,7 +4,11 @@ Question2::Application.routes.draw do
 
   root to: 'top#index'
 
-  resources :publications, except: [:edit, :udpate, :destroy]
+  resources :publications, except: [:edit, :udpate, :destroy] do
+    member do
+      put :add_author
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

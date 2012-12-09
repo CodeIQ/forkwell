@@ -22,4 +22,14 @@ class PublicationsController < ApplicationController
       render 'new'
     end
   end
+
+  def add_author
+    @publication = Publication.find params[:id]
+
+    if @publication.users << current_user
+      redirect_to @publication, notice: "#{@publication.title}の著者にあなたを追加しました"
+    else
+      redirect_to @publication, notice: "#{@publication.title}の著者にあなたを追加できませんでした。"
+    end
+  end
 end
