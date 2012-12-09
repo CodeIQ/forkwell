@@ -7,6 +7,7 @@ Question2::Application.routes.draw do
   resources :publications, except: [:edit, :udpate, :destroy] do
     member do
       put :add_author
+      put :add_skilltag
     end
   end
   # The priority is based upon order of creation:

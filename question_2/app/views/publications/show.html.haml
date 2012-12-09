@@ -5,6 +5,15 @@
   %p= link_to @publication.url.gsub(/https?:\/\//, ''), @publication.url
 
   %ul
+    - @publication.skilltags.each do |skilltag|
+      %li= skilltag.name
+    - if user_signed_in?
+      %li
+        = form_tag add_skilltag_publication_path(@publication), method: :put do
+          = text_field_tag :skilltag
+          = submit_tag 'スキルタグ登録する'
+
+  %ul
     - @publication.users.each do |user|
       %li= user.username
     - if user_signed_in? && !@publication.users.include?(current_user)
