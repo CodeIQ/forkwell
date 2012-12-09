@@ -10,6 +10,8 @@ Question2::Application.routes.draw do
       put :add_skilltag
     end
   end
+
+  resources :users, only: :show
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

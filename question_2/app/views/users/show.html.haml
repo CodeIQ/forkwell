@@ -1,0 +1,7 @@
+.header
+  %header
+    %h1= "#{@user.first_name} #{@user.last_name}"
+
+  %ul
+    - @user.skilltags.each do |skilltag|
+      %li= skilltag.name
