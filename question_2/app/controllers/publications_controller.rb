@@ -1,5 +1,9 @@
 # coding: utf-8
 class PublicationsController < ApplicationController
+  def index
+    @publications = Publication.order('created_at desc')
+  end
+
   def show
     @publication = Publication.find params[:id]
   end

@@ -7,3 +7,6 @@
   %ul
     - @publication.users.each do |user|
       %li= user.username
+
+%nav
+  = link_to 'Back', publications_path

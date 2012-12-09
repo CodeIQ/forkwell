@@ -1,5 +1,7 @@
 %h1 Top
 
+= link_to '一覧へ', publications_path
+
 - if user_signed_in?
   %h2= "Hello, #{current_user.username}!!"
   %p= link_to 'logout', logout_path, method: :delete
