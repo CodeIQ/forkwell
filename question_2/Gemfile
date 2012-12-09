@@ -40,4 +40,6 @@ gem 'haml-rails'
 
 group :test do
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rr'
 end
