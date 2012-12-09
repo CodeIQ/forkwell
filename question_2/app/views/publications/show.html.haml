@@ -7,7 +7,7 @@
   %ul
     - @publication.users.each do |user|
       %li= user.username
-    - if user_signed_in?
+    - if user_signed_in? && !@publication.users.include?(current_user)
       %li= link_to '自分を著者に登録', add_author_publication_path(@publication), method: :put
 
 %nav
