@@ -4,6 +4,7 @@ Question2::Application.routes.draw do
 
   root to: 'top#index'
 
+  resources :publications, only: [:new, :create, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
