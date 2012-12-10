@@ -5,3 +5,8 @@
   %ul
     - @user.skilltags.each do |skilltag|
       %li= skilltag.name
+    - if user_signed_in? && @user == current_user
+      %li
+        = form_for [@user, Skilltag.new] do |f|
+          = f.text_field :name
+          = f.submit '登録する'

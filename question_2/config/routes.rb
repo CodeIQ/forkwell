@@ -11,7 +11,9 @@ Question2::Application.routes.draw do
     end
   end
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :skilltags, only: :create
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
