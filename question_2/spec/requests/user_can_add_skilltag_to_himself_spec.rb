@@ -18,13 +18,31 @@ feature 'ユーザーとして自分にスキルタグを追加できる' do
       end
     end
 
-    scenario '自分のページでスキルタグの追加フォームにスキルタグを入力し、追加できること' do
-      visit user_path user
-      fill_in 'skilltag_name', with: 'ruby'
-      click_button '登録する'
+    context 'すでに登録済みのスキルタグの場合' do
+      background do
+        user.skilltags << Skilltag.create!(name: 'ruby')
+      end
 
-      current_path.should eq user_path(user)
-      page.should have_content 'ruby'
+      scenario '登録しようとするとエラーメッセージとともにリダイレクトされること' do
+        visit user_path user
+        fill_in 'skilltag_name', with: 'ruby'
+        click_button '登録する'
+
+        current_path.should eq user_path(user)
+        page.should have_content 'ruby'
+        page.should have_content 'すでに登録済みです'
+      end
+    end
+
+    context 'まだ登録していないスキルタグの場合' do
+      scenario '自分のページでスキルタグの追加フォームにスキルタグを入力し、追加できること' do
+        visit user_path user
+        fill_in 'skilltag_name', with: 'ruby'
+        click_button '登録する'
+
+        current_path.should eq user_path(user)
+        page.should have_content 'ruby'
+      end
     end
   end
 end
