@@ -12,15 +12,15 @@
 .skilltag-nav
   %nav
     %ul
-      %li= '書いたもの'
-      %li= link_to 'ユーザー', tagged_users_path(name: @skilltag.name)
+      %li= link_to '書いたもの', skilltag_path(name: @skilltag.name)
+      %li= 'ユーザー'
 
 .body
-  - @skilltag.publications.each do |pub|
-    .publication
+  - @skilltag.users.each do |user|
+    .user
       %article
         %header
-          %h2= link_to pub.title, pub
+          %h2= link_to "#{user.last_name} #{user.first_name}", user
         %ul
-          - pub.skilltags.each do |skilltag|
+          - user.skilltags.each do |skilltag|
             %li= link_to skilltag.name, skilltag_path(name: skilltag.name)

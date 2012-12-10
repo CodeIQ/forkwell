@@ -16,6 +16,7 @@ Question2::Application.routes.draw do
   end
 
   get '/skilltags/:name' => 'skilltags#show', as: 'skilltag'
+  get '/users/tagged/:name' => 'skilltags/users#index', as: 'tagged_users'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
