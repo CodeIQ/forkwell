@@ -14,6 +14,8 @@ Question2::Application.routes.draw do
   resources :users, only: :show do
     resources :skilltags, only: :create
   end
+
+  get '/skilltags/:name' => 'skilltags#show', as: 'skilltag'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

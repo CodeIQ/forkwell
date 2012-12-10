@@ -1,0 +1,25 @@
+%header
+  %h1= @skilltag.name
+
+  %p
+    %span
+      ユーザー数:
+      = @skilltag.users.count
+    %span
+      書いたもの数:
+      = @skilltag.publications.count
+
+.skilltag-nav
+  %nav
+    %ul
+      %li= link_to '書いたもの', skilltag_path(name: @skilltag.name)
+
+.body
+  - @skilltag.publications.each do |pub|
+    .publication
+      %article
+        %header
+          %h2= link_to pub.title, pub
+        %ul
+          - pub.skilltags.each do |skilltag|
+            %li= link_to skilltag.name, skilltag_path(name: skilltag.name)

@@ -1,5 +1,10 @@
 # coding: utf-8
 class SkilltagsController < ApplicationController
+  def show
+    @skilltag = Skilltag.find_by_name params[:name]
+    raise ActiveRecord::RecordNotFound if @skilltag.nil?
+  end
+
   # POST /users/:user_id/skilltags
   def create
     @user = User.find params[:user_id]
