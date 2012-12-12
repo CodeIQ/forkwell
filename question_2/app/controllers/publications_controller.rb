@@ -1,7 +1,7 @@
 # coding: utf-8
 class PublicationsController < ApplicationController
   def index
-    @publications = Publication.order('created_at desc')
+    @publications = Publication.order('created_at desc').page(params[:page]).per(10)
   end
 
   def show
