@@ -1,4 +1,6 @@
 Question3::Application.routes.draw do
+  get "company_users/create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
