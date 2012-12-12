@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_args (1.0.4)
     actionmailer (3.2.9)
       actionpack (= 3.2.9)
       mail (~> 2.4.4)
@@ -116,6 +117,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_args
   coffee-rails (~> 3.2.1)
   jquery-rails
   rails (= 3.2.9)
