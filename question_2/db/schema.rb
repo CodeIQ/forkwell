@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(:version => 20121209013603) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "skilltags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "user_publications", :force => true do |t|
     t.integer  "user_id"
     t.integer  "publication_id"
