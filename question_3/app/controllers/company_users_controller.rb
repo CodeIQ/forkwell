@@ -1,4 +1,5 @@
 class CompanyUsersController < ApplicationController
-  def create
+  def create(company_user)
+    CompanyUser.create! company_user
   end
 end
