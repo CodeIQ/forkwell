@@ -1,5 +1,5 @@
 Question3::Application.routes.draw do
-  get "company_users/create"
+  resources :company_users, only: :create
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

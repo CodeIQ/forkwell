@@ -1,12 +1,10 @@
 require 'spec_helper'
 
 describe CompanyUsersController do
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
+  describe "POST 'create'" do
+    before do
+      post :create
     end
+    its(:response) { should be_success }
   end
-
 end
